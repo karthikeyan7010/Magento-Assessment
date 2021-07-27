@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+   <acl>
+     <resources>
+        <resource id="Magento_Backend::admin">
+        	<resource id="Preorder_Module::p_m" title="Preorder" sortOrder="90" >
+        		<resource id="Preorder_Module::preorder" title="Details" sortOrder="10" />
+        	</resource>
+        </resource>
+    </resources>
+</acl>
+</config>

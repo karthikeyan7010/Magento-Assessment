@@ -1,0 +1,17 @@
+<form id="send-mail-form" method="get" enctype="multipart/form-data" action="<%- formaction %>">
+    <div class="modal-body">
+        <div class="bootbox-body">
+            <textarea class="bootbox-input bootbox-input-text form-control required-entry admin__control-textarea" name="send_message" rows="5" cols="91"><%- comments %></textarea>
+            <input type="hidden" name="preorder_id" value="<%- customerid %>">     
+            <input type="hidden" name="type" value="<%- type %>">   
+            <input type="hidden" name="email" value="<%- email %>">
+            <input type="hidden" name="product" value="<%- product %>">
+            <input type="hidden" name="sku" value="<%- sku %>">                     
+        </div>
+    </div>
+    <div class="modal-footer">
+        <span class="error"></span>
+        <button type="submit" class="action-primary"><span><%- submitlabel %></span></button>
+        <span class="clear"></span>
+    </div>
+</form>

@@ -1,0 +1,20 @@
+{
+"name": "preorder/module",
+"description": "A module that enable user to perform an order for a product placed before it is available for purchase.",
+"type": "magento2-module",
+"version": "0.2.0",
+"license": [
+  "OSL-3.0",
+  "AFL-3.0"
+],
+"require": {
+  "php": "~7.3.27",
+  "phpmailer/phpmailer": "^6.2"
+},
+"autoload": {
+  "files": [ "registration.php" ],
+  "psr-4": {
+    "Preorder\\Module\\": ""
+  }
+}
+}

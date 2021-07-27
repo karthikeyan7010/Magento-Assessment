@@ -1,0 +1,93 @@
+<?php
+    $userdata = $block->userdata();
+    if($userdata->isLoggedIn()){
+        $getCustomerId = $userdata->getCustomerId();
+        $customerData = $userdata->getCustomer();
+        $getFirstname = $customerData->getFirstname();  // get  First Name
+        $getLastname = $customerData->getLastname();  // get  Last Name
+        $getEmail = $customerData->getEmail(); // get Email Name    
+    }else{
+        $getCustomerId = "";
+        $customerData = "";
+        $getFirstname = "";
+        $getLastname = "";
+        $getEmail = "";
+    }
+    
+    $currentProduct = $block->getParams();
+    //sku
+    //print_r($currentProduct);
+    $productid = "";
+    $productname = "";
+    $productsku = "";
+
+    $currentProduct = $block->getParams();
+    $productname = $currentProduct->getName();
+    $productsku = $currentProduct->getSku();
+    $productid = $currentProduct->getId();
+
+    //$productid = $currentProduct['productId'];
+    //$productname = $currentProduct['productName'];
+    //$productsku = $currentProduct['productSku'];
+
+    $getBaseUrl = $block->getBaseUrl();
+    $redirect = $block->redirect();
+?>
+
+<form class="feedback_form" id="feedback_form" method="post" data-mage-init='{"validation":{"rules": {"firstname": {"required":true}}}}' action="<?php echo $block->getBaseUrl().'preorder/index/save'; ?>">
+    <fieldset class="fieldset">
+        <legend class="legend"><span><?php /* @escapeNotVerified */ echo __('User and Product Details') ?></span></legend><br>
+        <input type="hidden"  name="customerid" value="<?php echo $getCustomerId; ?>"/>
+        <input type="hidden"  name="productid" value="<?php echo $productid; ?>"/>
+        <div class="field required">
+            <label for="number" class="label">
+                <span><?php /* @escapeNotVerified */ echo __('User Firstname') ?></span>
+            </label>
+            <div class="control"><input type="text" id="firstname"name="firstname"class="input-text" data-validate='{"required":true,"letters-only":true}' value="<?php echo $getFirstname; ?>">
+            </div>
+        </div>
+        <div class="field required">
+            <label for="lastname" class="label">
+                <span><?php /* @escapeNotVerified */ echo __('User Lastname') ?></span>
+            </label>
+            <div class="control"><input type="text" id="lastname"name="lastname"class="input-text" data-validate='{"required":true,"letters-only":true}' value="<?php echo $getLastname; ?>">
+            </div>
+        </div>   
+        <div class="field required">
+            <label for="email" class="label">
+                <span><?php /* @escapeNotVerified */ echo __('User Email') ?></span>
+            </label>
+            <div class="control"><input type="text" id="email" name="email"class="input-text" data-validate='{"required":true,"validate-email":true}' value="<?php echo $getEmail; ?>">
+            </div>
+        </div> 
+         <div class="field required">
+            <label for="email" class="label">
+                <span><?php /* @escapeNotVerified */ echo __('Selected Product') ?></span>
+            </label>
+            <div class="control"><input type="text" id="product" name="product" class="input-text" value="<?php echo $productname; ?>" data-validate='{"required":true}' readonly>
+            </div>
+        </div>    
+        <div class="field required">
+            <label for="quantity" class="label">
+                <span><?php /* @escapeNotVerified */ echo __('Total Quantity') ?></span>
+            </label>
+            <div class="control quantity_div">
+                <input type="number" name="qty" id="qty" min="1" value="1" title="Qty" class="input-text qty" data-validate='{"required":true,"validate-number":true,"validate-greater-than-zero":true}'>
+            </div>            
+        </div>
+        <div class="field required">
+            <label for="email" class="label">
+                <span><?php /* @escapeNotVerified */ echo __('Product SKU') ?></span>
+            </label>
+            <div class="control"><input type="text" id="sku" name="sku" class="input-text" value="<?php echo $productsku; ?>" data-validate='{"required":true}' readonly>
+            </div>
+        </div>                            
+    </fieldset>
+    <div class="actions-toolbar">
+        <div class="primary">
+            <button type="submit" class="action submit secondary" title="<?php /* @escapeNotVerified */ echo __('Submit') ?>">
+                <span><?php /* @escapeNotVerified */ echo __('order') ?></span>
+            </button>
+        </div>
+    </div>
+</form>

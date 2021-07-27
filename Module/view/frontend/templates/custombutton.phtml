@@ -1,0 +1,12 @@
+<?php
+
+    $product = $block->getCurrentProduct();
+		 
+    $id = $product->getId();
+	$name = $product->getName();
+	$sku = $product->getSku();
+
+    $getBaseUrl = $block->getUrl('preorder',['sku'=>$sku]);
+?>
+
+<a title="Pre Order" class="preorder" id="product-preorder-button" href="<?php echo $getBaseUrl; ?>"><span>Pre order</span></a>

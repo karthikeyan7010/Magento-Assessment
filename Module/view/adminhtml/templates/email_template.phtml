@@ -1,0 +1,14 @@
+<?php
+
+// Block created & get data from the controller via createBlock
+$preorderData = $block->getData();
+$send_message_attribute_c = $preorderData['data']['send_message_attribute_c'];
+$send_message_attribute = $preorderData['data']['send_message_attribute'];
+$sku = $preorderData['data']['sku'];
+$product = $preorderData['data']['product'];
+$status = $preorderData['data']['status'];
+
+$send_message   = 'This is to inform that your product has been ' .$product.$send_message_attribute;
+?>
+
+  <?php echo $send_message;?>

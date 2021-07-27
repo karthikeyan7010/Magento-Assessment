@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="preorder_module_post_listing_data_source" xsi:type="string">Preorder\Module\Model\ResourceModel\Trid\Module\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Preorder\Module\Ui\Component\MassAction\Status\Options">
+        <arguments>
+            <argument name="data" xsi:type="array">
+                <item name="urlPath" xsi:type="string">preorder_grid/action/bulk</item>
+                <item name="paramName" xsi:type="string">status</item>
+                <item name="confirm" xsi:type="array">
+                    <item name="title" xsi:type="string" translatable="true">PreOrder Status</item>
+                    <item name="message" xsi:type="string" translatable="true">Confirm to send mail for the selected items?</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>    
+    <virtualType name="Preorder\Module\Model\ResourceModel\Trid\Module\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">preorder_module_post</argument>
+            <argument name="resourceModel" xsi:type="string">Preorder\Module\Model\ResourceModel\Module</argument>
+        </arguments>
+    </virtualType>
+</config>

@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+      <add id="Preorder_Module::p_m" title="Preorder" translate="title" module="Preorder_Module" parent="Magento_Sales::sales" sortOrder="50" dependsOnModule="Preorder_Module" resource="Preorder_Module::p_m"/>
+      
+      <add id="Preorder_Module::preorder" title="Details" translate="title" module="Preorder_Module" parent="Preorder_Module::p_m" sortOrder="10" dependsOnModule="Preorder_Module" action="preorder_grid/action/indexx" resource="Preorder_Module::preorder"/>
+    </menu>
+</config>
